@@ -22,9 +22,8 @@ connectDB();
 
 app.use(
     cors({
-        origin: ["http://localhost:5173",
-            "https://swad-house.vercel.app",
-         "https://restaurant-management-frontend-m99ubur6s-abcd-bf56.vercel.app"]
+        origin: true,
+        credentials: true
     })
 );
 
