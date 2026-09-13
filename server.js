@@ -22,11 +22,8 @@ connectDB();
 
 app.use(
     cors({
-        origin: [
-            "http://localhost:5173",
-          
-            "https://restaurant-management-frontend-jzeejhj6e-abcd-bf56.vercel.app"
-        ]
+         origin: true,
+        credentials: true
     })
 );
 
