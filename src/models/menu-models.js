@@ -1,6 +1,4 @@
-
-const mongoose = require("mongoose"); 
-const upload = require("../middleware/upload-middleware");
+const mongoose = require("mongoose");
 
 const menuSchema = new mongoose.Schema({
 
@@ -24,7 +22,7 @@ const menuSchema = new mongoose.Schema({
         required: true
     },
 
-    availability: {
+    available: {
         type: Boolean,
         default: true
     },

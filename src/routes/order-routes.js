@@ -1,55 +1,42 @@
 const express = require("express");
 
-const upload = require("../middleware/upload-middleware");
+const {
+    createOrder,
+    getOrders,
+    updateOrderStatus,
+    deleteOrder
+} = require("../controllers/order-controller");
 
 const authMiddleware = require("../middleware/auth-middleware");
-
 const adminMiddleware = require("../middleware/admin-middleware");
-
-const {
-    getmenuList,
-    getMenuById,
-    CreateMenu,
-    updateMenu,
-    deleteMenu
-} = require("../controllers/menu-controller");
-
 
 const router = express.Router();
 
 
-// Public routes
-
-router.get("/", getmenuList);
-
-router.get("/:id", getMenuById);
+// Customer
+router.post("/", createOrder);
 
 
-// Admin routes
-
-router.post(
+// Admin
+router.get(
     "/",
     authMiddleware,
     adminMiddleware,
-    upload.single("image"),
-    CreateMenu
+    getOrders
 );
-
 
 router.put(
     "/:id",
     authMiddleware,
     adminMiddleware,
-    upload.single("image"),
-    updateMenu
+    updateOrderStatus
 );
-
 
 router.delete(
     "/:id",
     authMiddleware,
     adminMiddleware,
-    deleteMenu
+    deleteOrder
 );
 
 
